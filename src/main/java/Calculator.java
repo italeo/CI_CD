@@ -1,5 +1,5 @@
 
-// COMMENT - For testing 
+// COMMENT - For testing
 
 class Calculator {
 

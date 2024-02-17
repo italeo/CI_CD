@@ -10,6 +10,6 @@ jobs:
     name: Push Docker image to Dockerhub
     runs-on: ubuntu-latest
 
-steps:
-  - name: Echo Test
-    run: echo this is a test
+    steps:
+      - name: Echo Test
+        run: echo this is a test
