@@ -23,7 +23,6 @@ class Calculator {
         return a / b;
     }
 
-
     /*
     Returns the n'th number in the fibonacci sequence
     https://en.wikipedia.org/wiki/Fibonacci_number
@@ -38,11 +37,22 @@ class Calculator {
     .
     .
     etc
-     */
+    */
     int fibonacciNumberFinder(int n){
-        return 0;
+        if (n <= 0)
+            return 0;
+        else if (n == 1 || n == 2)
+            return 1;
+        else {
+            int a = 0, b = 1, fib = 0;
+            for (int i = 2; i < n; i++) {
+                fib = a + b;
+                a = b;
+                b = fib;
+            }
+            return fib;
+        }
     }
-
 
     /*
     Returns binary value of the given int number
@@ -50,9 +60,16 @@ class Calculator {
     if int a = 0 then this method returns: 0
     if int a = 10 then this method returns: 1010
     if int a = 16 then this method returns: 10000
-     */
+    */
     String intToBinaryNumber(int number){
-        return null;
+        if (number == 0)
+            return "0";
+        StringBuilder binary = new StringBuilder();
+        while (number > 0) {
+            binary.insert(0, number % 2);
+            number = number / 2;
+        }
+        return binary.toString();
     }
 
     /*
@@ -62,10 +79,9 @@ class Calculator {
     then the created ID could be = Jasonklfgn3jknnvksdfm - Because it contains the unaltered String n and is unique
 
     if you run this function twice with the same String input, it must return 2 unique String IDs
-     */
+    */
     String createUniqueID(String n){
-        return null;
+        String uniqueID = n + "-" + System.currentTimeMillis();
+        return uniqueID;
     }
-
-
 }
