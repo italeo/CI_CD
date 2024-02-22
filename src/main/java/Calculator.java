@@ -1,25 +1,30 @@
 
 // COMMENT - For testing part 3
 
+import java.util.HashSet;
+import java.util.Set;
+
 class Calculator {
 
-    Calculator(){
+    private int uniqueIDCounter;
 
+    Calculator() {
+        uniqueIDCounter = 0;
     }
 
-    int add(int a , int b){
+    int add(int a, int b) {
         return a + b;
     }
 
-    int subtract(int a , int b){
+    int subtract(int a, int b) {
         return a - b;
     }
 
-    int multiply(int a , int b){
+    int multiply(int a, int b) {
         return a * b;
     }
 
-    int divide(int a , int b){
+    int divide(int a, int b) {
         return a / b;
     }
 
@@ -38,14 +43,14 @@ class Calculator {
     .
     etc
     */
-    int fibonacciNumberFinder(int n){
+    int fibonacciNumberFinder(int n) {
         if (n <= 0)
             return 0;
         else if (n == 1 || n == 2)
             return 1;
         else {
-            int a = 0, b = 1, fib = 0;
-            for (int i = 2; i < n; i++) {
+            int a = 1, b = 1, fib = 0;
+            for (int i = 3; i <= n; i++) {
                 fib = a + b;
                 a = b;
                 b = fib;
@@ -61,7 +66,7 @@ class Calculator {
     if int a = 10 then this method returns: 1010
     if int a = 16 then this method returns: 10000
     */
-    String intToBinaryNumber(int number){
+    String intToBinaryNumber(int number) {
         if (number == 0)
             return "0";
         StringBuilder binary = new StringBuilder();
@@ -80,8 +85,9 @@ class Calculator {
 
     if you run this function twice with the same String input, it must return 2 unique String IDs
     */
-    String createUniqueID(String n){
-        String uniqueID = n + "-" + System.currentTimeMillis();
+    String createUniqueID(String n) {
+        String uniqueID = n + "-" + uniqueIDCounter;
+        uniqueIDCounter++;
         return uniqueID;
     }
 }
